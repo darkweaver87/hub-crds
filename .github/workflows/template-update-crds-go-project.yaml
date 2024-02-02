@@ -20,7 +20,7 @@ jobs:
         with:
           repository: ${{ inputs.TARGET_REPO }}
           ref: ${{ inputs.TARGET_BRANCH }}
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: get go version
         id: go_version
         run: |
@@ -36,7 +36,7 @@ jobs:
       - name: create PR
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: update CRDs to ${{ inputs.CRDS_VERSION }}"
           committer: "Traefiker <traefiker@github.com>"
           author: "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
