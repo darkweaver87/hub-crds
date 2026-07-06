@@ -20,12 +20,14 @@ jobs:
       - name: checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
+          persist-credentials: false
           repository: traefik/hub-crds
           path: ${{ github.workspace }}/hub-crds
           ref: ${{ env.GIT_TAG }}
       - name: checkout traefik-helm-chart repo
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
+          persist-credentials: false
           repository: traefik/traefik-helm-chart
           ref: master
           token: ${{ secrets.GH_TOKEN }}
